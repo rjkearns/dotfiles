@@ -1,0 +1,9 @@
+[user]
+	name = Bobby Kearns
+	email = rkearns@invoca.com
+[color]
+  ui = always
+[push]
+  default = upstream
+[core]
+	editor = vim
