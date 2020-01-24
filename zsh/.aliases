@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# Personal Aliases
+alias cat='bat'
+alias ag='ag --path-to-ignore ~/Developer/dotfiles/.ignore'
+alias berc='bundle exec rails c'
+alias bers='bundle exec rails s'
+alias bert='bundle exec rake test'
+alias fs='foreman start'
+alias tags='ctags -R --exclude=.git --exclude=node_modules --exclude=test'
+
+# Directory shortcuts
+alias home='cd ~/'
+alias developer='cd ~/Developer/'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+# Git shortcuts
+alias gb='git branch'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gup='git smart-pull'
+alias gm='git smart-merge'
+alias gl='git smart-log'
+alias gfc='git log -1 --graph --decorate --oneline'
+alias sha='git rev-parse HEAD'
+alias glgg='git log --graph --decorate'
+alias glg='git log --graph --decorate --oneline'
+alias gds='git diff --staged'
+alias gst='git status'
+alias gss='git status -sb'
+
+# VIM
+alias vi='mvim -v'
+alias vimrc='vi ~/.vimrc'
+
