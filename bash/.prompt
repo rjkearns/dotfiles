@@ -10,11 +10,12 @@ git_prompt() {
   export git_branch=''
   rev_parse_directory=`git rev-parse --show-toplevel 2> /dev/null`
   if [ -f "$rev_parse_directory/.git/HEAD" ]; then
-    export git_branch="$magenta(`git rev-parse --abbrev-ref HEAD` `git diff --numstat | wc -l | xargs`$white|$green`git diff --staged --numstat | wc -l | xargs`$magenta)"
+    export git_branch="$magenta(`git rev-parse --abbrev-ref HEAD` `git diff --numstat | wc -l | xargs`$white|$green`git diff --staged --numstat | wc -l | xargs`$magenta) "
   fi
 }
+
 # refresh your current directory on every command, in case you are in a directory that has moved or been renamed, etc
 PROMPT_COMMAND='cd "`pwd`"'
 PROMPT_COMMAND="git_prompt; $PROMPT_COMMAND"
 
-PS1="\$git_branch \\[$cyan\]\u 🦊 \\[$green\]\W\[$white\] "
+PS1="$git_branch\\[$cyan\]\u 🦊 \\[$green\]\W\[$white\] "
