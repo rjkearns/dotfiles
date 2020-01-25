@@ -4,11 +4,11 @@
 
 startmyday () {
   echo "Good morning, Bobby."
-  echo "\nThe weather right now:"
+  echo "The weather right now:"
   ansiweather
-  echo "\nUpdating Homebrew..."
+  echo "Updating Homebrew..."
   brew update
-  echo "\nNews from Hacker News:"
+  echo "News from Hacker News:"
   gethackernews
 }
 
