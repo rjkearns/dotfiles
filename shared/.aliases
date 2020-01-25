@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Personal Aliases
 alias cat='bat'
 alias ag='ag --path-to-ignore ~/Developer/dotfiles/.ignore'
@@ -32,6 +30,11 @@ alias glg='git log --graph --decorate --oneline'
 alias gds='git diff --staged'
 alias gst='git status'
 alias gss='git status -sb'
+
+# Git-Smart
+alias gup='git smart-pull'
+alias gm='git smart-merge'
+alias gl='git smart-log'
 
 # VIM
 alias vi='mvim -v'

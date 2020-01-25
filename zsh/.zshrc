@@ -48,65 +48,9 @@ zle_highlight+=(paste:none)
 #      Sourcin'      #
 ######################
 dot_dir=${0:a:h}
-. "$dot_dir/.aliases"
+. "$PWD/shared/.aliases"
+. "$PWD/shared/.getnews"
+. "$PWD/shared/.methods"
 . "$dot_dir/.prompt"
-. "$dot_dir/.getnews"
 
-startmyday () {
-  echo "Good morning, Bobby."
-  echo "\nThe weather right now:"
-  ansiweather
-  echo "\nUpdating Homebrew..."
-  brew update && brew upgrade
-  echo "\nNews from Hacker News:"
-  gethackernews
-}
 
-######################
-# Directory commands #
-######################
-devloper() {
-  DIR=`find ~/Developer/* -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux` && cd "$DIR"
-}
-
-dirr() {
-  DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux` && cd "$DIR"
-}
-
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-cd() {
-  builtin cd "$@" && ls -lA
-}
-
-######################
-#    VIM commands    #
-######################
-vif() {
-  vim "$(fzf)"
-}
-
-vg() {
-  local file line
-  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
-
-  if [[ -n $file ]]
-  then
-     vim $file +$line
-  fi
-}
-
-######################
-#    GIT commands    "
-######################
-fbr() {
-  git fetch
-  local branches branch
-  branches=$(git branch -a) &&
-  branch=$(echo "$branches" | fzf +s +m -e) &&
-  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
-}
