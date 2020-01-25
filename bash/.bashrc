@@ -15,6 +15,7 @@ export BAT_CONFIG_PATH="~/Developer/dotfiles/bat/bat.conf"
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_OPTS="--ansi --preview-window 'right:80%' --preview 'bat --color=always {}'"
 export FZF_DEFAULT_OPTS="--ansi --height 100% --layout=reverse --border"
+export PATH="$HOME/.rbenv/bin:$PATH"
 export CLICOLOR=cons25
 export BASH_SILENCE_DEPRECATION_WARNING=1
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -22,6 +23,10 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 eval "$(rbenv init -)"
 { eval `ssh-agent`; ssh-add -A; } &>/dev/null
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 
 ######################
 #  History settings  #
