@@ -7,6 +7,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export DOTFILES_DIR=${0:a:h:h}
 export NVM_DIR="$HOME/.nvm"
 export EDITOR=vim
 export EXECJS_RUNTIME=Node
@@ -47,10 +48,9 @@ zle_highlight+=(paste:none)
 ######################
 #      Sourcin'      #
 ######################
-dot_dir=${0:a:h}
-. "$PWD/shared/.aliases"
-. "$PWD/shared/.getnews"
-. "$PWD/shared/.methods"
-. "$dot_dir/.prompt"
+. "$DOTFILES_DIR/shared/.aliases"
+. "$DOTFILES_DIR/shared/.getnews"
+. "$DOTFILES_DIR/shared/.methods"
+. "$DOTFILES_DIR/zsh/.prompt"
 
 
